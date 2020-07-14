@@ -1,0 +1,333 @@
+
+import { makeStyles, useTheme } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Card from '@material-ui/core/Card';
+import Grid from '@material-ui/core/Grid';
+import Button from '@material-ui/core/Button';
+import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
+import MobileStepper from '@material-ui/core/MobileStepper';
+import Typography from '@material-ui/core/Typography';
+import React, { Component } from 'react';
+import BarChart from 'react-easy-bar-chart';
+import './App.css';
+
+
+
+
+import food1 from "./New/food2.jpg";
+import food2 from "./New/food2.jpg";
+import food3 from "./New/food3.jpg";
+import food4 from "./New/food5.jpg";
+import food5 from "./New/food5.jpg";
+
+
+
+
+
+
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+        backgroundColor: theme.palette.background.paper,
+    },
+
+    paper: {
+        height:"1000px",
+        position:'relative',
+        display:'flex',
+        flexDirection:'column',
+
+
+
+    },
+    card: {
+        height:"300px",
+        display:'flex',
+        flexDirection:'row',
+        justifyContent:'flex-start',
+        position:'relative',
+
+    },
+    card1: {
+        position:'relative',
+        height:"400px",
+        width:"1000px",
+        display:'flex',
+        flexDirection:'column',
+        flexWrap:'nowrap',
+        justifyContent:'flex-start',
+        alignContent:'flex-start',
+        margin:theme.spacing(2,2,2,2),
+    },
+
+
+
+    grid: {
+        width:"200px",
+        height:"200px",
+        margin:theme.spacing(2,10,1,1),
+        borderRadius:"20px",
+        flexDirection:'column',
+        display: 'block',
+    },
+
+    img: {
+        height: 200,
+        overflow: 'hidden',
+        display: 'block',
+        width: 250,
+        margin: 'auto',
+        borderRadius: "25px"
+
+    },
+
+    button: {
+
+        position:'absolute',
+        right:"10px",
+
+    },
+    chart:{
+        display:'flex',
+        flexDirection:'row',
+    },
+    c1:{
+        display:'flex',
+        justifyContent:"center",
+    },
+
+
+
+
+
+
+}));
+const tileData = [
+    {
+        img:food5 ,
+        title: 'I',
+
+        cols: 2,
+    },
+    {
+        img:food2 ,
+        title: 'm',
+
+    },
+    {
+        img:food3 ,
+        title: 'a',
+
+    },
+
+]
+
+
+
+
+export default function SimplePaper() {
+
+    const classes = useStyles();
+    const theme = useTheme();
+    const [activeStep, setActiveStep] = React.useState(0);
+
+    const handleNext = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    };
+
+    const handleBack = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    };
+
+    const data = [
+        {
+            title:  "رسپی اول",
+            value: 10,
+            color: "#196f3d",
+        },
+        {
+            title:  "رسپی دوم",
+            value: 14,
+            color: "#a93226",
+        },
+        {
+            title:  "رسپی سوم",
+            value: 2,
+            color: " #1f618d",
+        },
+        {
+            title:  "رسپی چهارم",
+            value: 20,
+            color: "#839192",
+        },
+        {
+            title:  "رسپی پنجم",
+            value: 15,
+            color: "#d35400",
+        },
+        {
+            title:  "رسپی ششم",
+            value: 12,
+            color: " #a9cce3",
+        },
+        {
+            title:  "رسپی هفتم",
+            value: 5,
+            color: "#2e4053",
+        },
+        {
+            title:  "رسپی هشتم",
+            value: 6,
+            color: "#186a3b",
+        },
+    ];
+    const data1 = [
+        {
+            title:  "رسپی اول",
+            value: 50000,
+            color: "#196f3d",
+        },
+        {
+            title:  "رسپی دوم",
+            value: 84000,
+            color: "#a93226",
+        },
+        {
+            title:  "رسپی سوم",
+            value: 4000,
+            color: " #1f618d",
+        },
+        {
+            title:  "رسپی چهارم",
+            value: 60000,
+            color: "#839192",
+        },
+        {
+            title:  "رسپی پنجم",
+            value: 75000,
+            color: "#d35400",
+        },
+        {
+            title:  "رسپی ششم",
+            value: 36000,
+            color: " #a9cce3",
+        },
+        {
+            title:  "رسپی هفتم",
+            value: 25000,
+            color: "#2e4053",
+        },
+        {
+            title:  "رسپی هشتم",
+            value: 42000,
+            color: "#186a3b",
+        },
+    ];
+
+
+
+
+    return (
+        <div className={classes.root}>
+            <Paper className={classes.paper}>
+                <div className={classes.c1}>
+                    <Card className={classes.card1}>
+                        <div>
+                            <div className={classes.card}>
+                                <Button onClick={handleBack}
+                                        style={{
+                                            margin:theme.spacing(0,1,1,1), height: '30%', borderRadius: '50%'
+                                            , alignSelf: 'center'}}
+                                        disabled={activeStep === 0}>
+                                    {theme.direction === 'rtl' ? <KeyboardArrowRight/> : <KeyboardArrowLeft/>}
+
+                                </Button>
+
+                                <Grid container className={classes.grid}>
+
+
+                                    <img className={classes.img} alt="food2" src="food2.jpg"/>
+                                    <Typography> سوشی </Typography>
+                                    <Typography> قیمت:5000 </Typography>
+                                    <Typography> مجموع:50000 </Typography>
+                                    <Typography> تعداد:10 عدد  </Typography>
+
+                                </Grid>
+
+                                <Grid container className={classes.grid}>
+
+
+                                    <img className={classes.img} alt="food2" src="food2.jpg"/>
+                                    <Typography> سوشی </Typography>
+                                    <Typography> قیمت:5000 </Typography>
+                                    <Typography> مجموع:50000 </Typography>
+                                    <Typography> تعداد:10 عدد  </Typography>
+
+                                </Grid>
+                                <Grid container className={classes.grid}>
+
+
+                                    <img className={classes.img} alt="food2" src="food2.jpg"/>
+                                    <Typography> سوشی </Typography>
+                                    <Typography> قیمت:5000 </Typography>
+                                    <Typography> مجموع:50000 </Typography>
+                                    <Typography> تعداد:10 عدد  </Typography>
+
+                                </Grid>
+
+
+
+                                <Button size="small"  className={classes.button} onClick={handleNext} style={{
+                                    margin:theme.spacing(0,1,1,1), height: '30%', borderRadius: '50%'
+                                    , alignSelf: 'center'
+                                }} disabled={activeStep === 5}>
+
+                                    {theme.direction === 'rtl' ? <KeyboardArrowLeft/> : <KeyboardArrowRight/>}
+                                </Button>
+                            </div>
+
+
+
+                            {/* <MobileStepper
+                            className={classes.but}
+                            variant="dots"
+                            steps={6}
+                            position="static"
+                            activeStep={activeStep}
+                            className={classes.root}
+                        />*/}
+                        </div>
+                    </Card>
+                </div>
+                <div className={classes.chart}>
+                    <div   style={{margin:theme.spacing(2,15,2,3)}}>
+                        <BarChart
+                            xAxis='رسپی ها '
+                            yAxis="تعداد"
+                            height={400}
+                            width={700}
+                            data={data}
+                        />
+                    </div>
+                    <div style={{margin:theme.spacing(2,5,2,15)}}>
+                        <BarChart
+                            xAxis='رسپی ها'
+                            yAxis="تومان"
+                            height={400}
+                            width={700}
+                            data={data1}
+                        />
+                    </div>
+                </div>
+
+
+            </Paper>
+
+
+        </div>
+    );
+}
